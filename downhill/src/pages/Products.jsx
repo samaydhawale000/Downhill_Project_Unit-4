@@ -14,7 +14,7 @@ function Products() {
   return (
     <div>
       <Navbar />
-hii
+      
       <Footer />
     </div>
   );
