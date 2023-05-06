@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import Group from "../images/Group 8.png";
 import { color } from "framer-motion";
+import "../App.css";
 
 function Navbar() {
   return (
@@ -15,7 +16,7 @@ function Navbar() {
         color: "#ffffff",
         position: "fixed",
         width: "100%",
-        opacity:"96%"
+        opacity:"96%",
       }}
       className="NavBar"
     >
@@ -31,11 +32,12 @@ function Navbar() {
         }}
       >
         <NavLink
-          to="/serfcates"
+          to="/products"
+          className="navLinks"
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive ? "#FFC42D" : "#ffffff",
+              color: isActive && "#FFC42D" ,
               textDecoration: !isActive && "none",
             };
           }}
@@ -45,10 +47,11 @@ function Navbar() {
 
         <NavLink
           to="/extras"
+          className="navLinks"
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive ? "#FFC42D" : "#ffffff",
+              color: isActive && "#FFC42D" ,
               textDecoration: !isActive && "none",
             };
           }}
@@ -58,10 +61,11 @@ function Navbar() {
 
         <NavLink
           to="/acessories"
+          className="navLinks"
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive ? "#FFC42D" : "#ffffff",
+              color: isActive && "#FFC42D" ,
               textDecoration: !isActive && "none",
             };
           }}
@@ -71,10 +75,11 @@ function Navbar() {
 
         <NavLink
           to="/sales"
+          className="navLinks"
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive ? "#FFC42D" : "#ffffff",
+              color: isActive && "#FFC42D" ,
               textDecoration: !isActive && "none",
             };
           }}
@@ -92,10 +97,11 @@ function Navbar() {
       >
         <NavLink
           to="/login"
+          className="navLinks"
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive ? "#FFC42D" : "#ffffff",
+              color: isActive && "#FFC42D" ,
               textDecoration: !isActive && "none",
               margin: "0px 20px 0px 20px",
             };
@@ -106,10 +112,11 @@ function Navbar() {
 
         <NavLink
           to="/wishlist"
+          className="navLinks"
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive ? "#FFC42D" : "#ffffff",
+              color: isActive && "#FFC42D" ,
               textDecoration: !isActive && "none",
               margin: "0px 20px 0px 20px",
             };
@@ -120,10 +127,11 @@ function Navbar() {
 
         <NavLink
           to="/bag"
+          className="navLinks"
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive ? "#FFC42D" : "#ffffff",
+              color: isActive && "#FFC42D" ,
               textDecoration: !isActive && "none",
               margin: "0px 20px 0px 20px",
             };
