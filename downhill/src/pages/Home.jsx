@@ -24,6 +24,7 @@ import {
 
 function Home(){
     return <div>
+
         <Navbar />
       <Heading as="h1" fontSize="350px" fontWeight="normal" color="#615D52">
         <Center>Downhill</Center>
