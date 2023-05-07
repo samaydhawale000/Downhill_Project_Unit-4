@@ -6,17 +6,18 @@ import "../App.css";
 function Navbar() {
   return (
     <div
-      style={{
-        zIndex: 1,
+    style={{
+        position: "fixed",
+        zIndex: 999,
         background: "#313131",
         display: "flex",
         justifyContent: "space-between",
         padding: "6px 45px 6px 45px",
         alignItems: "center",
         color: "#ffffff",
-        position: "fixed",
         width: "100%",
         opacity:"96%",
+        margin:"0px"
       }}
       className="NavBar"
     >
