@@ -1,19 +1,22 @@
 import image3 from "../images/image3.png";
 
-import { Heading, Center } from "@chakra-ui/react";
+import { Heading, Center,Text } from "@chakra-ui/react";
 
 function NotFoundPage() {
   return (
-    <div style={{ margin: "60px" }}>
+    <div style={{ margin: "10px" }}>
       <Center>
-        <Heading fontWeight="medium" color="#FFC42D">
-          This Page is Under maintanance, You can explore other features
+        <Heading fontWeight="medium" fontSize={"70px"} m="20px" color="#FFC42D">
+          Oops!!
         </Heading>
+      </Center>
+      <Center>
+        <Text fontSize={"20px"}> This Page is Under maintanance, You can explore other features</Text>
       </Center>
       <img
         src={image3}
         alt="image3"
-        style={{ margin: "0px auto", width: "600px" }}
+        style={{ margin: "-10px auto", width: "600px" }}
       />
     </div>
   );
