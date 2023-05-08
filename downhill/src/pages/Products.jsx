@@ -106,7 +106,7 @@ function Products() {
           </Select>
         </div>
         <div style={{ width: "32%" }}>
-          <Select placeholder="Sort by price" width="100%" onChange={(e)=>{
+          <Select placeholder="Filter by price" width="100%" onChange={(e)=>{
             setPriceSort(e.target.value)
           }}>
             <option value="below $200">Below $200</option>

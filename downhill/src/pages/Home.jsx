@@ -96,6 +96,7 @@ function Home(){
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
                 cum nostrum dolor, beatae totam laboriosam adipisci itaque
               </Text>
+              <Link to="/products">
               <Button
                 colorScheme="yellow"
                 borderRadius="0px"
@@ -104,6 +105,8 @@ function Home(){
               >
                 Go shopping
               </Button>
+              </Link>
+              
               <div
                 style={{
                   background: "#d6d7d2",
@@ -206,6 +209,7 @@ function Home(){
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
                 cum nostrum dolor
               </Text>
+              <Link to="/products">
               <Button
                 colorScheme="yellow"
                 borderRadius="0px"
@@ -214,6 +218,8 @@ function Home(){
               >
                 Go shopping
               </Button>
+              </Link>
+             
             </div>
           </div>
         </div>
