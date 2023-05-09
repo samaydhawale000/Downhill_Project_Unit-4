@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import { Link, NavLink } from "react-router-dom";
 import Footer from "../components/Footer";
 
+
 import {
     Heading,
     Center,
@@ -23,6 +24,8 @@ import {
   import skate8 from "../images/skate8.png";
 
 function Home(){
+ 
+
     return <div>
 
         <Navbar />

@@ -89,7 +89,7 @@ function SingleProduct() {
               <SkeletonText
                 noOfLines={1}
                 spacing="1"
-                skeletonHeight="8"
+                skeletonHeight="5"
                 margin={"0px 0px 20px 0px"}
                 width={"100px"}
               />

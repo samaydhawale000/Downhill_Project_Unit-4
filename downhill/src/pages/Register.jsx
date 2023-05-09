@@ -1,5 +1,5 @@
-import Group from "../images/Group 8.png";
 import { Link } from "react-router-dom";
+import Group from "../images/Group 8.png";
 import {
   Heading,
   Center,
@@ -8,70 +8,54 @@ import {
   Input,
   Checkbox,
 } from "@chakra-ui/react";
-import Swal from 'sweetalert2'
-import { useContext } from "react";
-import { AppContext } from "../context/ContextUse";
 import { useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
+import { Navigat, useNavigate } from "react-router-dom";
 
-function LogIn() {
-  const value = useContext(AppContext);
+function Register() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [submitEmail, setSubmitEmail] = useState(true);
-  const [submitPass, setSubmitPass] = useState(true);
-  const [password, setPassword] = useState("");
-  const [data, setData] = useState([]);
-  const [wrongCredencials, setWrongCredencials] = useState(true);
+  const [password, setpassword] = useState("");
+  const [emailField, setEmailField] = useState(true);
+  const [passField, setPassField] = useState(true);
+  const [nameField, setNameField] = useState(true);
 
+  const obj = {
+    name: name,
+    email: email,
+    password: password,
+  };
 
-  const navigateHome = useNavigate();
-
-  function fetchData() {
-    fetch(`https://mock-api-templete-downhill.onrender.com/login`)
+  const navigateLogin = useNavigate()
+  function postData() {
+    fetch("https://mock-api-templete-downhill.onrender.com/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(obj),
+    })
       .then((res) => {
         return res.json();
       })
       .then((data) => {
         console.log(data);
-        setData(data);
       })
-      .catch((err) => {
+      .then((err) => {
         console.log(err);
       });
-  }
 
-  function checkCredencials() {
-    let flag = false;
-    let userName = ""
-    data.map((e) => {
-      if (e.email == email && e.password == password) {
-        userName= e.name
-        flag = true;
-      }
-    });
-
-    if (flag == true) {
-      value.loginHandle(userName);
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Login Successfull',
+        title: 'Register Successfull',
         showConfirmButton: false,
         timer: 1500
       })
       setTimeout(() => {
-        navigateHome("/"); 
+        navigateLogin("/login")
       }, 1500);
-      
-    } 
-    else {
-      setWrongCredencials(false);
-    }
   }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
     <div
@@ -95,7 +79,6 @@ function LogIn() {
             }}
           />
         </Link>
-
         <Center>
           <Heading
             position="fixed"
@@ -108,16 +91,15 @@ function LogIn() {
             Welcome to <span style={{ color: "#FFC42D" }}>Downhill</span>
           </Heading>
         </Center>
-
         <div style={{ width: "100%", height: "100%", background: "black" }}>
           <img
             style={{
               objectFit: "cover",
               width: "100%",
               height: "100%",
-              opacity: "60%",
+              opacity: "30%",
             }}
-            src="https://images.unsplash.com/photo-1547442991-a51706bf3a3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1965&q=80"
+            src="https://images.unsplash.com/photo-1563692712050-3e68350add0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
             alt="image"
           />
         </div>
@@ -126,18 +108,33 @@ function LogIn() {
         <div style={{ margin: "auto", width: "500px" }}>
           <Center>
             <Heading fontWeight="medium" margin="0px 0px 50px 0px">
-              Log <span style={{ color: "#FFC42D" }}>in</span>
+              Create an Accoun<span style={{ color: "#FFC42D" }}>t</span>
             </Heading>
           </Center>
 
           {
-            wrongCredencials?<Text m="0px 0px 30px 0px" fontSize="18px" fontWeight="medium">
-            Login to your Account
-          </Text> :<Text m="0px 0px 30px 0px" fontSize="18px" color="red" fontWeight="medium">
-          Wrong credentials! Please enter valid credentials
+            emailField && passField && nameField ? <Text m="0px 0px 30px 0px" fontSize="18px" fontWeight="medium">
+            Register your Account
+          </Text>:
+          <Text m="0px 0px 30px 0px" fontSize="18px" fontWeight="medium" color="red">
+            All fields are important please enter valid information
           </Text>
           }
-          
+
+          <Text marginBottom="6px">Enter your name</Text>
+          <Input
+            placeholder="Enter your name"
+            type="text"
+            fontSize="18px"
+            width="500px"
+            border={nameField ? "2px solid #dedede" : "2px solid red"}
+            height="50px"
+            borderRadius="none"
+            m="0px 0px 20px 0px"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
 
           <Text marginBottom="6px">Enter your E-mail</Text>
           <Input
@@ -145,28 +142,27 @@ function LogIn() {
             type="email"
             fontSize="18px"
             width="500px"
-            border= {submitEmail? "2px solid #dedede": "2px solid red"}
+            border={emailField ? "2px solid #dedede" : "2px solid red"}
             height="50px"
             borderRadius="none"
             m="0px 0px 20px 0px"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
-
           />
 
-          <Text marginBottom="6px">Enter your Password</Text>
+          <Text marginBottom="6px">Enter your password</Text>
           <Input
             placeholder="Enter your password"
             fontSize="18px"
             type="password"
             width="500px"
-            border= {submitPass? "2px solid #dedede": "2px solid red"}
+            border={passField ? "2px solid #dedede" : "2px solid red"}
             height="50px"
             borderRadius="none"
             m="0px 0px 50px 0px"
             onChange={(e) => {
-              setPassword(e.target.value);
+              setpassword(e.target.value);
             }}
           />
 
@@ -179,24 +175,29 @@ function LogIn() {
             diplay="block"
             fontSize="20px"
             onClick={() => {
-              checkCredencials();
-
-              if(email==""){
-                setSubmitEmail(false)
+              if (name != "" && email !== "" && password !== "") {
+                postData();
               }
-              if(password==""){
-                setSubmitPass(false)
+
+              if (name == "") {
+                setNameField(false);
+              }
+              if (email == "") {
+                setEmailField(false);
+              }
+              if (password == "") {
+                setPassField(false);
               }
             }}
           >
-            Log in
+            Register
           </Button>
 
           <Text m="50px 0px 0px 0px">
-            If you dont have an account you can{" "}
-            <Link to="/register">
+            Already have an Account?{" "}
+            <Link to="/login">
               <span style={{ color: "#FFC42D", fontWeight: "bold" }}>
-                Register here
+                Login here
               </span>
             </Link>
           </Text>
@@ -206,4 +207,4 @@ function LogIn() {
   );
 }
 
-export default LogIn;
+export default Register;

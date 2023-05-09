@@ -97,7 +97,7 @@ function Products() {
         }}
       >
         <div style={{ width: "32%" }}>
-          <Select placeholder="Sort by order" width="100%" onChange={(e)=>{
+          <Select placeholder="Sort by order" width="100%" border="2px solid #dedede" borderRadius="none" onChange={(e)=>{
             setOrder(e.target.value)
             console.log(e.target.value)
           }}>
@@ -106,7 +106,7 @@ function Products() {
           </Select>
         </div>
         <div style={{ width: "32%" }}>
-          <Select placeholder="Filter by price" width="100%" onChange={(e)=>{
+          <Select placeholder="Filter by price" width="100%" border="2px solid #dedede" borderRadius="none" onChange={(e)=>{
             setPriceSort(e.target.value)
           }}>
             <option value="below $200">Below $200</option>
@@ -119,7 +119,7 @@ function Products() {
             <InputLeftElement>
               <SearchIcon color="#8e8d8c" />
             </InputLeftElement>
-            <Input placeholder="Search Surfscates" paddingLeft={"44px"} onChange={(e)=>{
+            <Input placeholder="Search Surfscates" border="2px solid #dedede" borderRadius="none" paddingLeft={"44px"} onChange={(e)=>{
               setSearch(e.target.value)
             }} />
           </InputGroup>
