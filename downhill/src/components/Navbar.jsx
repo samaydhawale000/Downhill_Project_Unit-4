@@ -2,11 +2,16 @@ import { NavLink } from "react-router-dom";
 import Group from "../images/Group 8.png";
 import { color } from "framer-motion";
 import "../App.css";
+import { useContext } from "react";
+import { AppContext } from "../context/ContextUse";
+import { Text } from "@chakra-ui/react";
 
 function Navbar() {
+  const value = useContext(AppContext);
+
   return (
     <div
-    style={{
+      style={{
         position: "fixed",
         zIndex: 999,
         background: "#313131",
@@ -16,8 +21,8 @@ function Navbar() {
         alignItems: "center",
         color: "#ffffff",
         width: "100%",
-        opacity:"96%",
-        margin:"0px"
+        opacity: "96%",
+        margin: "0px",
       }}
       className="NavBar"
     >
@@ -38,7 +43,7 @@ function Navbar() {
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive && "#FFC42D" ,
+              color: isActive && "#FFC42D",
               textDecoration: !isActive && "none",
             };
           }}
@@ -52,7 +57,7 @@ function Navbar() {
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive && "#FFC42D" ,
+              color: isActive && "#FFC42D",
               textDecoration: !isActive && "none",
             };
           }}
@@ -66,7 +71,7 @@ function Navbar() {
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive && "#FFC42D" ,
+              color: isActive && "#FFC42D",
               textDecoration: !isActive && "none",
             };
           }}
@@ -80,7 +85,7 @@ function Navbar() {
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive && "#FFC42D" ,
+              color: isActive && "#FFC42D",
               textDecoration: !isActive && "none",
             };
           }}
@@ -96,20 +101,24 @@ function Navbar() {
           width: "25%",
         }}
       >
-        <NavLink
-          to="/login"
-          className="navLinks"
-          style={({ isActive }) => {
-            return {
-              fontWeight: isActive && "bold",
-              color: isActive && "#FFC42D" ,
-              textDecoration: !isActive && "none",
-              margin: "0px 20px 0px 20px",
-            };
-          }}
-        >
-          LOGIN
-        </NavLink>
+        {value.login ? (
+          <Text fontSize={"18px"} color="#ffdd88">Hello {value.name}</Text>
+        ) : (
+          <NavLink
+            to="/login"
+            className="navLinks"
+            style={({ isActive }) => {
+              return {
+                fontWeight: isActive && "bold",
+                color: isActive && "#FFC42D",
+                textDecoration: !isActive && "none",
+                margin: "0px 20px 0px 20px",
+              };
+            }}
+          >
+            LOGIN
+          </NavLink>
+        )}
 
         <NavLink
           to="/wishlist"
@@ -117,7 +126,7 @@ function Navbar() {
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive && "#FFC42D" ,
+              color: isActive && "#FFC42D",
               textDecoration: !isActive && "none",
               margin: "0px 20px 0px 20px",
             };
@@ -132,7 +141,7 @@ function Navbar() {
           style={({ isActive }) => {
             return {
               fontWeight: isActive && "bold",
-              color: isActive && "#FFC42D" ,
+              color: isActive && "#FFC42D",
               textDecoration: !isActive && "none",
               margin: "0px 20px 0px 20px",
             };
