@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar"
+
 import Footer from "../components/Footer";
 import {
   Heading,
@@ -15,9 +16,7 @@ import {
 } from "@chakra-ui/react";
 
 import {
-  PhoneIcon,
-  AddIcon,
-  WarningIcon,
+
   ArrowBackIcon,
 } from "@chakra-ui/icons";
 
@@ -52,7 +51,7 @@ function SingleProduct() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar/>
       <Link to="/products">
         <ArrowBackIcon boxSize={7} margin="100px 0px -10px 40px" />
       </Link>
